@@ -1,0 +1,86 @@
+name: Build index.json
+on: [push]
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
+      # # 检出代码
+      - name: Check out repository code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git pull --rebase
+
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Generate index.json
+        run: |
+          cd ./scripts
+          python generateIndex.py
+
+      - name: Auto push
+        run: |
+          git add index.json
+          git commit -m "Update index.json by Begonia"
+          git push
+
+      - name: Read errors
+        id: errors
+        uses: juliangruber/read-file-action@v1
+        with:
+          path: ./scripts/errors.txt
+      - name: Echo errors
+        run: echo "${{ steps.errors.outputs.content }}"
+
+      - if: steps.errors.outputs.content == ''
+        name: Stop
+        run: |
+          stopMarker=$(uuidgen)
+          echo "::$stopMarker::"
+
+      # 发送邮件
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          # 必需，邮件服务器地址
+          server_address: smtp.office365.com
+          # 必需，邮件服务器端口，默认25 (如果端口为465，则会使用TLS连接)
+          server_port: 587
+          # 可选 (建议): 邮件服务器用户
+          username: ${{secrets.MAIL_USERNAME}}
+          # 可选 (建议): 邮件服务器密码
+          password: ${{secrets.MAIL_PASSWORD}}
+          # 必需，邮件主题
+          subject: 档案馆更新出错
+          # 必需，收件人地址
+          # to: ${{steps.sendTo.outputs.content}}
+          to: ${{secrets.MAIL_USERNAME}}
+          # 必需，发送人全名 (地址可以省略)
+          from: Begonia # <alice@example.com>
+          # 可选，文本内容
+          # body: Build job of ${{github.repository}} completed successfully!
+          # 可选，HTML内容，可从文件读取
+          html_body: file://scripts/errors.txt
+          # # 可选，抄送人
+          # cc: a@example.com,b@example.com
+          # # 可选，密抄送至参与人
+          bcc: ${{secrets.MAILTO}}
+          # bcc: ${{steps.sendTo.outputs.content}}
+          # # 可选，邮件回执
+          # reply_to: ${{secrets.MAIL_REPLYTO}}
+          # # 可选，回执邮件消息ID
+          # in_reply_to: <random-luke@example.com>
+          # 可选，markdown转HTML (会设置内容格式为text/html)
+          # convert_mardown: true
+          # 可选，附件
+          attachments: file://scripts/errors.txt
+          # 可选，邮件优先级设置: 'high', 'normal' (default) or 'low'
+          # priority: low
