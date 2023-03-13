@@ -41,14 +41,9 @@ jobs:
           git commit -m "Update index.json by Begonia"
           git push
 
-      - if: steps.errors.outputs.content == ''
-        name: Stop
-        run: |
-          stopMarker=$(uuidgen)
-          echo "::$stopMarker::"
-
       # 发送邮件
-      - name: Send mail
+      - if: steps.errors.outputs.content != ''
+        name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
           # 必需，邮件服务器地址
@@ -85,3 +80,9 @@ jobs:
           attachments: file://scripts/errors.txt
           # 可选，邮件优先级设置: 'high', 'normal' (default) or 'low'
           # priority: low
+      
+      - if: steps.errors.outputs.content != ''
+        name: Stop by an error
+        run: |
+          stopMarker=$(uuidgen)
+          echo "::$stopMarker::"
