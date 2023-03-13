@@ -26,12 +26,6 @@ jobs:
           cd ./scripts
           python generateIndex.py
 
-      - name: Auto push
-        run: |
-          git add index.json
-          git commit -m "Update index.json by Begonia"
-          git push
-
       - name: Read errors
         id: errors
         uses: juliangruber/read-file-action@v1
@@ -39,6 +33,13 @@ jobs:
           path: ./scripts/errors.txt
       - name: Echo errors
         run: echo "${{ steps.errors.outputs.content }}"
+        
+      - if: steps.errors.outputs.content == ''
+        name: Auto push
+        run: |
+          git add index.json
+          git commit -m "Update index.json by Begonia"
+          git push
 
       - if: steps.errors.outputs.content == ''
         name: Stop
