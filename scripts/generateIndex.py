@@ -142,7 +142,8 @@ for folder in dataFolders:
 errorFile.close()
 
 # 将data转换为json字符串
-dataJson = json.dumps(data, indent=4, ensure_ascii=False)
+# dataJson = json.dumps(data, indent=4, ensure_ascii=False)
+dataJson = json.dumps(data, ensure_ascii=False)
 # 将json字符串写入到data.json中
 with open(dataJsonPath, 'w', encoding='utf-8') as f:
     f.write(dataJson)
