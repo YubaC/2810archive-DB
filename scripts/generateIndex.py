@@ -48,6 +48,8 @@ import os
 import json
 import base64
 
+import pinyin
+
 # 错误信息文件
 errorFile = open('errors.txt', 'a', encoding='utf-8')
 
@@ -140,6 +142,10 @@ for folder in dataFolders:
         continue
 
 errorFile.close()
+
+# 把data['list']按照每个元素内部的title的首字母或拼音排序
+data['list'].sort(key=lambda x: pinyin.get(
+    x["title"], format="strip", delimiter=""))
 
 # 将data转换为json字符串
 # dataJson = json.dumps(data, indent=4, ensure_ascii=False)

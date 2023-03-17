@@ -24,6 +24,7 @@ jobs:
       - name: Generate index.json
         run: |
           cd ./scripts
+          pip install -r requirements.txt
           python generateIndex.py
 
       - name: Read errors
@@ -33,7 +34,7 @@ jobs:
           path: ./scripts/errors.txt
       - name: Echo errors
         run: echo "${{ steps.errors.outputs.content }}"
-        
+
       - if: steps.errors.outputs.content == ''
         name: Auto push
         run: |
@@ -80,7 +81,7 @@ jobs:
           attachments: file://scripts/errors.txt
           # 可选，邮件优先级设置: 'high', 'normal' (default) or 'low'
           # priority: low
-      
+
       - if: steps.errors.outputs.content != ''
         name: Stop by an error
         run: |
