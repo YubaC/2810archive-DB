@@ -19,6 +19,10 @@ introduce: 舜耕中学校歌2015-12-29录音
 
 <audio src="舜耕中学校歌伴奏.mp3" preload="auto" controls></audio>
 
+## 曲谱
+
+![曲谱](./no.svg)
+
 ## 歌词
 
 我在这里成长
