@@ -23,7 +23,12 @@ introduce: 舜耕中学校歌2015-12-29录音
 
 ![曲谱](./sheetMusic.jpg)
 
+<details open>
+<summary>
+
 ## 歌词
+
+</summary>
 
 我在这里成长
 
@@ -106,6 +111,8 @@ introduce: 舜耕中学校歌2015-12-29录音
 我的心永远热爱着你
 
 我快乐成长的地方
+
+</details>
 
 ## 下载
 
