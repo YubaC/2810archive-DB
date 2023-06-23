@@ -17,7 +17,7 @@
 #         },
 #         {
 #             "title": "毕业纪念",
-#             "type": "video",
+#             "type": "audiovisual",
 #             "content": "5qCh5Zut6aOO5pmv44CC",
 #             "url": "121212"
 #         }
