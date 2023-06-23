@@ -1,6 +1,6 @@
 ---
 title: 济南舜耕中学校歌
-type: other
+type: audiovisual
 date: 2015-12-29 00:00:00
 introduce: 舜耕中学校歌2015-12-29录音
 ---

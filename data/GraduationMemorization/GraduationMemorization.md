@@ -1,6 +1,6 @@
 ---
 title: 济南舜耕中学二十八级十班毕业留念
-type: video
+type: audiovisual
 date: 2023-3-15 23:14:19
 introduce: 2020年7月毕业典礼时播放的毕业留念视频
 ---
