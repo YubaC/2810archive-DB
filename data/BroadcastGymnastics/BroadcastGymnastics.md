@@ -14,6 +14,10 @@ introduce: 广播体操、大课间跑操及眼保健操音频
 <details>
 <summary><b>七彩阳光</b></summary>
 
+七彩阳光：
+
+<audio src="群星 - 第三套全国小学生广播体操-七彩阳光.mp3" preload="auto" controls></audio>
+
 阳光体育之歌（《七彩阳光》原唱版）：
 
 <audio src="群星 - 阳光体育之歌（《七彩阳光》原唱版）.mp3" preload="auto" controls></audio>
