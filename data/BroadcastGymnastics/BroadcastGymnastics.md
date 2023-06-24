@@ -14,7 +14,9 @@ introduce: 广播体操、大课间跑操及眼保健操音频
 <details>
 <summary><b>七彩阳光</b></summary>
 
-<audio src="群星 - 阳光体育之歌（《七彩阳光》原唱版）" preload="auto" controls></audio>
+阳光体育之歌（《七彩阳光》原唱版）：
+
+<audio src="群星 - 阳光体育之歌（《七彩阳光》原唱版）.mp3" preload="auto" controls></audio>
 
 ![曲谱](./阳光体育之歌曲谱.jpg)
 
@@ -23,7 +25,11 @@ introduce: 广播体操、大课间跑操及眼保健操音频
 <details>
 <summary><b>放飞理想</b></summary>
 
+放飞理想（无开头）（节奏版结尾）：
+
 <audio src="放飞理想（无开头）（节奏版结尾）.mp3" preload="auto" controls></audio>
+
+放飞理想：
 
 <audio src="群星 - 放飞理想.mp3" preload="auto" controls></audio>
 
@@ -32,6 +38,8 @@ introduce: 广播体操、大课间跑操及眼保健操音频
 <details>
 <summary><b>时代在召唤</b></summary>
 
+时代在召唤：
+
 <audio src="群星 - 时代在召唤.mp3" preload="auto" controls></audio>
 
 </details>
@@ -39,12 +47,16 @@ introduce: 广播体操、大课间跑操及眼保健操音频
 <details>
 <summary><b>大课间跑步</b></summary>
 
+大课间跑步音乐：
+
 <audio src="群星 - 大课间跑步音乐.mp3" preload="auto" controls></audio>
 
 </details>
 
 <details>
 <summary><b>眼保健操</b></summary>
+
+眼保健操口令：
 
 <audio src="眼保健操口令.mp3" preload="auto" controls></audio>
 
